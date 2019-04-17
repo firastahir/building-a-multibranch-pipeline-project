@@ -1,8 +1,5 @@
 pipeline {
     agent {
-        node {
-            label 'FT4'
-        }
         docker {
             image 'node:6-alpine'
             args '-p 3000:3000 -p 5000:5000' 
@@ -14,12 +11,16 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                node('FT4') {
+                   sh 'npm install' 
+             }
             }
         }
         stage('Test') {
             steps {
+               node('FT4') {
                 sh './jenkins/scripts/test.sh'
+             }
             }
         }
     }
