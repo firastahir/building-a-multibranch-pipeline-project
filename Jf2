@@ -42,7 +42,7 @@ spec:
      stage('Test') {
             steps {
                container('node') {
-                sh './jenkins/scripts/test.sh'
+                sh 'npm test'
               }
             }
         }
