@@ -24,16 +24,6 @@ spec:
     command:
     - cat
     tty: true
-  - name: gcloud
-    image: gcr.io/cloud-builders/gcloud
-    command:
-    - cat
-    tty: true
-  - name: kubectl
-    image: gcr.io/cloud-builders/kubectl
-    command:
-    - cat
-    tty: true 
  
 """
     }
@@ -78,10 +68,10 @@ spec:
                 branch 'production'
             }
             steps {
-                container('kubectl') {
-                sh("kubectl get pods")
+                container('maven') {
+                sh 'mvn -version'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sh 'kubectl get ns'
+                sh 'ls /tmp/'
               }
             }
         }
