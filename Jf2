@@ -42,7 +42,7 @@ spec:
      stage('Test') {
             steps {
                container('node') {
-                sh 'npm test'
+                sh 'npm -version'
               }
             }
         }
