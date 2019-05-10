@@ -19,14 +19,6 @@ spec:
     image: node:6-alpine
     command: ['cat']
     tty: true
-  - name: jnlp
-    image: jnlp:alpine
-    command: ['cat']
-    tty: true
-  - name: curl
-    image: byrnedo/alpine-curl:latest
-    command: ['cat']
-    tty: true
   
 """
     }
